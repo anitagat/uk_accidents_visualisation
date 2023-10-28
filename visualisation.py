@@ -1,6 +1,8 @@
 # Import required library
 import sqlite3
 import queries
+from pandas import DataFrame
+import plotly.express as px
 
 def execute_query(query, cursor):
     try:
@@ -19,12 +21,12 @@ def execute_query(query, cursor):
 conn = sqlite3.connect('uk_road_safety.db')
 cursor = conn.cursor()
 
-queryList = [queries.query1, queries.query2]
+# queryList = [queries.query7]
 
-for query in queryList:
-    print(query)
-    execute_query(query, cursor)
-    conn.commit()
+# for query in queryList:
+#     print(query)
+#     execute_query(query, cursor)
+#     conn.commit()
 
 # while True:
 #     # Get SQL query from user
@@ -39,5 +41,18 @@ for query in queryList:
 #     # Commit changes
 #     conn.commit()
 
+
+cursor.execute(queries.query7)
+rows = cursor.fetchall()
+df = DataFrame(rows)
+df.columns = ['Accident Number', 'Year']
+print(df)
+df.to_csv("accidentnoperyear.csv")
+
 # Close connection
 conn.close()
+
+
+# Plot accident counts per year
+fig = px.line(df, x='Year', y='Accident Number', title='Accidents per Year')
+fig.show()
