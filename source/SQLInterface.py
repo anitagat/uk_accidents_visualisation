@@ -53,7 +53,7 @@ class SQLInterface:
             self.conn.commit()
 
     # From SQL output to csv file
-    def sql_to_pd_df(self, query, csv_name):
+    def sql_to_pd_df(self, query, csv_name=None):
         self.cursor.execute(query)
         # fetch column names
         colums = []
@@ -63,8 +63,10 @@ class SQLInterface:
         # make df
         df = DataFrame(rows)
         df.columns = colums
-        print(df)
-        df.to_csv(csv_name+".csv")
+        #print(df)
+        if(csv_name!=None):
+            df.to_csv(csv_name+".csv")
+        return df
 
     def __del__(self):
         # Close connection

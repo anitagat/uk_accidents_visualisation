@@ -52,3 +52,9 @@ query8 = """
 select accidents.'Local_Authority_(District)' as district, accidents.'Accident_Index' as accident_count, accidents.'Year' as year, accidents.'Longitude' as longitude, accidents.'Latitude' as latitude from accidents
 where Year = '2017'
 """
+
+query9 = """
+select accidents.Accident_Severity, accidents.Urban_or_Rural_Area, vehicles.Age_Band_of_Driver, vehicles.Age_of_Vehicle, vehicles.'Engine_Capacity_.CC.', vehicles.Sex_of_Driver from accidents
+inner join vehicles on accidents.Accident_Index = vehicles.Accident_Index
+limit 100000
+"""
