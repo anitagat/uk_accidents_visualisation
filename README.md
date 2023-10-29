@@ -6,7 +6,9 @@
 ![](assets/accident_count_per_year.png)
 
 **Density of accidents in different districts in 2017**  
-This is an interactive plot.  
-[Click here to view the visualisation!](https://anitagat.github.io/uk_accidents_visualisation/assets/accidents_year.html)
+This is an interactive map. Here's a screenshot displaying accident density in different districts:
+![](assets/uk-map-accidents-per-region.png)
+
+[Click here to view the visualisation (slow loading due to high number of data points)](https://anitagat.github.io/uk_accidents_visualisation/assets/accidents_year.html)
 
 
