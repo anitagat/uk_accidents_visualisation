@@ -75,7 +75,7 @@ target = df[['Accident_Severity_Fatal','Accident_Severity_Serious', 'Accident_Se
 # Split df
 X_train, X_test, y_train, y_test = train_test_split(features,target, test_size=0.2)
 
-# Building the model 
+# Building the model (1st attempt)
 model = tf.keras.Sequential([
     tf.keras.layers.Dense(64, activation='relu'),
     tf.keras.layers.Dense(32, activation='relu'),
