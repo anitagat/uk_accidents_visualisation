@@ -42,8 +42,13 @@ order by year
 """
 
 query7 = """
-select count(accident_no), year from
+select count(accident_no) as accident_count, year from
 (select substr(accidents.Date, 1,4) as year, accidents.Accident_Index as accident_no
 from accidents)
 group by year
 order by year"""
+
+query8 = """
+select accidents.'Local_Authority_(District)' as district, accidents.'Accident_Index' as accident_count, accidents.'Year' as year, accidents.'Longitude' as longitude, accidents.'Latitude' as latitude from accidents
+where Year = '2017'
+"""
