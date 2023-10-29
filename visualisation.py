@@ -21,4 +21,5 @@ fig = px.scatter_geo(df_2017,
 fig.update_geos(showcoastlines=True, coastlinecolor="blue", showland=True, landcolor="lightgreen")
 fig.show()
 
+# save into html 
 fig.write_html("accidents_year.html")
